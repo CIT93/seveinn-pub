@@ -23,3 +23,4 @@ determineHouseHPoints(3)
 determineHouseHPoints(4)
 
 // don't forget to use ` instead of '
+//I messed up by having the terminal stuck on my pri rather than my pub.

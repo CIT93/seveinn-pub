@@ -87,6 +87,8 @@ function start() {
 
 start();
 
+//I tried working on the code challange on my own but it was extremely difficult and after spending some hours on it I decided to try and ask chat gtp for help. I mixed some of my code and with the additional input from chat gtp but after watching the last video I feel I'm not on track with the assignment so I apologize if the code looks extremely different.
+
 
 
 //Minimize the amount of things we declare as far as variables on the global scope

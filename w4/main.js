@@ -1,5 +1,6 @@
+console.log("top of file")
 function determineHouseSizePts(size) {size = "large";
-  console.log(size);
+  console.log("inside block scope");
   if (size === "large"){
     carbonfootprintPoints = carbonfootprintPoints + 10;
   } else if (size === "medium") { 
@@ -14,30 +15,47 @@ function determineHouseSizePts(size) {size = "large";
   console.log( `Based on the size of ${size} home the points would be ${carbonfootprintPoints}`);
 }
 
-let carbonfootprintPoints = 0;
-function determineHouseHoldPts(numberInHouseholdHousehold) {
-  console.log("Inside the function");
+function determineHouseHoldPts(numberInHouseholdHousehold) {  numberInHousehold = 5
+  console.log("inside block scope");
+  let houseHoldPoints = 0;
   if (numberInHousehold === 1) {
-    carbonfootprintPoints = carbonfootprintPoints + 14;
+    houseHoldPoints = 14
   } else if (numberInHousehold === 2) {
-    carbonfootprintPoints = carbonfootprintPoints + 12;
+    houseHoldPoints = 12
   } else if (numberInHousehold === 3) {
-    carbonfootprintPoints = carbonfootprintPoints + 10;
+    houseHoldPoints = 10
   } else if (numberInHousehold === 4) {
-    carbonfootprintPoints = carbonfootprintPoints + 8;
+    houseHoldPoints = 8
   } else if (numberInHousehold === 5) {
-    carbonfootprintPoints = carbonfootprintPoints + 6;
+    houseHoldPoints = 6
   } else if (numberInHousehold === 6) {
-    carbonfootprintPoints = carbonfootprintPoints + 4;
+    houseHoldPoints = 4
   } else if (numberInHousehold > 6) {
-    carbonfootprintPoints = carbonfootprintPoints + 2;
+    houseHoldPoints = 2
   } else {
-    console.log( `Based on the number of members of the houshold of ${numberInHousehold} The points would be ${carbonfootprintPoints}.`
-    );
+    console.log( `Based on the number of members of the houshold of ${numberInHousehold} The points would be ${houseHoldPoints}`)
   }
+  return houseHoldPoints
 }
-determineHouseHoldPts("5");
+console.log("global scope")
+let carbonfootprintPoints = 0
+
+function start() {
+const houseHoldPts = determineHouseHoldPts(5)
+console.log(houseHoldPts)
 determineHouseSizePts("large");
+}
+
+start();
+
+
+
+//Minimize the amount of things we declare as far as variables on the global scope
+//I think since it's "global" that the document recognizes it quicker than any other tags. Like a heiarchy or such.
+//My guess on the output is that since we haven't wrote a start for the function, it can't determine the values which won't allow the code to work resulting in an error
+
+
+
 
 function calculateHomeFprint(size, efficiency) {
   homeCarbonPoints = 0;

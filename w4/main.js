@@ -49,6 +49,45 @@ determineHouseSizePts("large");
 start();
 
 
+function determineHouseHoldPts(numberInHousehold) {
+  console.log("Inside determineHouseHoldPts");
+
+  // Points table for household sizes 1-6
+  const pointsBySize = [0, 14, 12, 10, 8, 6, 4]; 
+  let houseHoldPoints = numberInHousehold > 6 ? 2 : (pointsBySize[numberInHousehold] || 0);
+
+  console.log(`For ${numberInHousehold} household members, points awarded: ${houseHoldPoints}`);
+  return houseHoldPoints;
+}
+
+function determineHouseSizePts(size) {
+  console.log("Inside determineHouseSizePts");
+
+  const sizePoints = {
+    large: 10,
+    medium: 7,
+    small: 4,
+    apt: 2
+  };
+
+  let pointsToAdd = sizePoints[size] || 0;
+
+  console.log(`For ${size} home, points awarded: ${pointsToAdd}`);
+  return pointsToAdd;
+}
+
+function start() {
+  console.log("Starting Calculation...");
+
+  carbonfootprintPoints += determineHouseHoldPts(5);
+  carbonfootprintPoints += determineHouseSizePts("large");
+
+  console.log(`Total Carbon Footprint Points: ${carbonfootprintPoints}`);
+}
+
+start();
+
+
 
 //Minimize the amount of things we declare as far as variables on the global scope
 //I think since it's "global" that the document recognizes it quicker than any other tags. Like a heiarchy or such.

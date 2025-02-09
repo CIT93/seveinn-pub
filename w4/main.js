@@ -40,6 +40,8 @@ function determineHouseHoldPts(numberInHouseholdHousehold) {  numberInHousehold 
 console.log("global scope")
 let carbonfootprintPoints = 0
 
+// You would put it below function 
+
 function start() {
 const houseHoldPts = determineHouseHoldPts(5)
 console.log(houseHoldPts)
@@ -120,3 +122,25 @@ console.log("lets see your score");
 
 // don't forget to use ` instead of '
 //I messed up by having the terminal stuck on my pri rather than my pub.
+
+function start(inputs) {
+  const houseHoldPts = determineHouseHoldPts(myInputs(0));
+  const houseSizePts = determineHouseSizePts(myInputs(1));
+  const total = houseHoldPts + houseSizePts
+  console.log(`Total carbon footprint score so far ${total}`)
+}
+
+start([5, "apt"]);
+//I think you have to put something into start() but im unsure of what.
+// Honestly this assignment was very confusinng, i understand why arrays are important and why we use them but overall i am having trouble understanding how to implement them and if i were to set it up on my own id have trouble.
+
+
+const myInputs = [5, "apt"]; // on the global scope
+start();
+
+const myArr = [1, 2, 3, 4, 5];
+console.log(myArr)
+console.log(myArr[1])
+console.log(myArr[4])
+console.log(myArr[0] = 10)
+console.log(myArr.push[1])

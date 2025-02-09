@@ -1,3 +1,7 @@
+const cfpData = {};
+
+
+
 console.log("top of file")
 function determineHouseSizePts(size) {size = "large";
   console.log("inside block scope");
@@ -123,14 +127,24 @@ console.log("lets see your score");
 // don't forget to use ` instead of '
 //I messed up by having the terminal stuck on my pri rather than my pub.
 
-function start(inputs) {
-  const houseHoldPts = determineHouseHoldPts(myInputs(0));
-  const houseSizePts = determineHouseSizePts(myInputs(1));
+function start(houseHoldMembers, houseSize) {
+  const houseHoldPts = determineHouseHoldPts(houseHoldMembers);
+  const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPts + houseSizePts
+  cfpData.push(houseHoldMembers, houseSize, houseHoldPts, houseSizePts, total);
+  console.log(cfpData);
   console.log(`Total carbon footprint score so far ${total}`)
 }
+  //last code along.it kind of does make sense to keep everything in one array because i think more arrays causes confusion
 
 start([5, "apt"]);
+start([4, "large"]);
+start([3, "medium"]);
+start([2, "small"]);
+start([14]);
+start([12]);
+
+
 //I think you have to put something into start() but im unsure of what.
 // Honestly this assignment was very confusinng, i understand why arrays are important and why we use them but overall i am having trouble understanding how to implement them and if i were to set it up on my own id have trouble.
 

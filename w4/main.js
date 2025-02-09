@@ -137,6 +137,10 @@ function start(houseHoldMembers, houseSize) {
 }
   //last code along.it kind of does make sense to keep everything in one array because i think more arrays causes confusion
 
+function displayOutput() {
+  
+}
+
 start([5, "apt"]);
 start([4, "large"]);
 start([3, "medium"]);

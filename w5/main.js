@@ -65,13 +65,14 @@ function start(houseHoldMembers, houseSize) {
   cfpData.push(cfpObj);
 }
 
-function displayOutput() {
+function displayOutObj(obj) {
   for(obj of cfpData)
-    console.log(obj)
+    console.log(obj);
   const output = document.getElementById("output");
   const newH2 = document.createElement("h2");
   newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
   const newH3 = document.createElement("h3");
+  const newP = document.createElement("p");
   newP.textContent = `This number is based on the number of members of the household of ${obj.houseHoldMembers} (score: ${obj.houseHoldPoints}) `;
   newP.textContent += `and a ${obj.houseSize} size of home (score: ${obj.houseSizePoints}).`;
   output.appendChild(newH2);
@@ -82,9 +83,9 @@ function displayOutput() {
 
 
 
-// Correct function calls
+// function calls that display
 start(3, "medium");
-displayOutObj(cfpObj);
+displayOutObj();
 
 // Running multiple test cases
 start(1, "apt");

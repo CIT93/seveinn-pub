@@ -70,13 +70,13 @@ function displayOutput() {
     console.log(obj)
   const output = document.getElementById("output");
   const newH2 = document.createElement("h2");
-  newH2.textContent = `Carbon Footprint ${obk.cfpTotal}`;
-  //const newH3 = document.createElement("h3")'
-  // newP.textContent = `This number is based on the number of members of the household of ${obj.houseHoldMembers} (score: ${obj.houseHoldPoints}) `;
-  // newP.textContent += `and a ${obj.houseSize} size of home (score: ${obj.houseSizePoints}).`;
+  newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
+  const newH3 = document.createElement("h3");
+  newP.textContent = `This number is based on the number of members of the household of ${obj.houseHoldMembers} (score: ${obj.houseHoldPoints}) `;
+  newP.textContent += `and a ${obj.houseSize} size of home (score: ${obj.houseSizePoints}).`;
   output.appendChild(newH2);
-  // output.appendChild(newH3);
-  // output.appendChild(newP);
+  output.appendChild(newH3);
+  output.appendChild(newP);
 }
 
 

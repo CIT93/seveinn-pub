@@ -1,5 +1,5 @@
 const cfpData = [];
-let cfpObj = {}; // Global object to store the latest calculation
+let cfpObj = {}; // Global 
 
 function determineHouseSizePts(size) {
   let houseSizePoints = 0;
@@ -55,7 +55,7 @@ function start(houseHoldMembers, houseSize) {
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePts;
 
- const cfpObj = {
+  const cfpObj = {
     houseHoldMembers: houseHoldMembers,
     houseSize: houseSize,
     houseHoldPoints: houseHoldPTS,
@@ -66,8 +66,7 @@ function start(houseHoldMembers, houseSize) {
 }
 
 function displayOutObj(obj) {
-  for(obj of cfpData)
-    console.log(obj);
+  for (obj of cfpData) {console.log(obj);
   const output = document.getElementById("output");
   const newH2 = document.createElement("h2");
   newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
@@ -78,16 +77,10 @@ function displayOutObj(obj) {
   output.appendChild(newH2);
   output.appendChild(newH3);
   output.appendChild(newP);
+  }
 }
 
-
-
-
 // function calls that display
-start(3, "medium");
-displayOutObj();
-
-// Running multiple test cases
 start(1, "apt");
 start(2, "apt");
 start(3, "apt");
@@ -116,6 +109,7 @@ start(4, "large");
 start(5, "large");
 start(6, "large");
 start(7, "large");
+displayOutObj();
 
 console.log(cfpData);
 
@@ -145,4 +139,3 @@ for (let i = 0; i <= 15; i++) {
 for (let i = 10; i >= 0; i--) {
   console.log(i);
 }
-

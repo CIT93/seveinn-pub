@@ -1,0 +1,19 @@
+html {
+    background-color: grey;
+}
+body {
+    background-color: whitesmoke;
+}
+input:in-range {
+    background-color: lightgreen;
+}
+input:out-of-range {
+    background-color: lightcoral;
+}
+table, th, td {
+    border: 1px solid;
+    padding: 5px
+}
+tbody tr:nth-child(odd) {
+    background-color: beige; 
+}

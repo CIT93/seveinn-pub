@@ -1,4 +1,4 @@
- // function displayMovieRates(movies) {
+// function displayMovieRates(movies) {
 //     const movieElement = document.getElementById("movies");
 //     movies.forEach(function (movie) {
 //       let recommendation;
@@ -44,7 +44,7 @@
 //     }
 //   ]);
   
-import { renderTbl,renderTblhead } from "./render.js";
+import { renderTBL} from "./render.js";
 import { determineHouseHoldPts,determineHouseSizePts } from "./cfp.js";
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
@@ -58,11 +58,11 @@ function start(houseHoldMembers, houseSize, firstName, lastName) {
   const total = houseHoldPTS + houseSizePts;
 
   const cfpObj = {
+    fullName: firstName, lastName,
     houseHoldMembers: houseHoldMembers,
     houseSize: houseSize,
     houseHoldPoints: houseHoldPTS,
     houseSizePoints: houseSizePts,
-    fullName,
     cfpTotal: total,
   };
   cfpData.push(cfpObj);
@@ -129,7 +129,7 @@ FORM.addEventListener("submit", function (e) {
 
   OUTPUT.innerHTML = ""; // Clear previous output to avoid duplication
 
-  renderTbl(cfpData); // Update the table with the new user input
+  renderTBL(cfpData); // Update the table with the new user input
 
   FORM.reset(); // Clear form inputs after submission
 });

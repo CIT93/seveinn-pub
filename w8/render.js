@@ -33,20 +33,31 @@ function renderTBLBtn(index, data) {
   const btnDel = document.createElement("button");
 
   btnEdit.textContent = "Edit";
+  
   btnDel.textContent = "Delete";
 
   td.appendChild(btnEdit);
+  
   td.appendChild(btnDel);
   btnDel.addEventListener("click", function (e) {
     console.log("hello from the delete button");
     console.log(e);
-    data.splice(index, 1);
+    data.splice(index, 1,);
     renderTBL(data)
-  
+    renderTblHeading(headingTextArr)
+    
   })
   btnEdit.addEventListener('click', function(e){
-
-  })
+      const obj = data[index];
+    
+      FORM.firstName.value = obj.fullName.split("firstName")[0];
+      FORM.lastName.value = obj.lastName;
+      FORM.housem.value = obj.houseHoldMembers;
+      FORM.houses.value = obj.houseSize;
+    
+      FORM.setAttribute(index); // Track which row is being edited
+    });
+    
   return td;
 }
 

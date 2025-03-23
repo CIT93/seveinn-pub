@@ -125,7 +125,7 @@ FORM.addEventListener("submit", function (e) {
   const houseMembers = parseInt(FORM.housem.value);
   const houseSize = FORM.houses.value;
 
-  start(firstName, lastName, houseMembers, houseSize,); // Store data in cfpData
+  start(houseMembers, houseSize, firstName, lastName); // Store data in cfpData
 
   OUTPUT.innerHTML = ""; // Clear previous output to avoid duplication
 

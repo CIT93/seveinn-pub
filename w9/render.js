@@ -40,10 +40,10 @@ function renderTBLBtn(obj, index, data) {
   td.appendChild(btnEdit);
   
   td.appendChild(btnDel);
-  btnDel.addEventListener("click", function (e) {
+  btnDel.addEventListener("click", function (e){
     console.log("hello from the delete button");
     console.log(e);
-    data.splice(index, 1);
+    data.splice(index, 1,);
     renderTBL(data);    
   })
   btnEdit.addEventListener('click', function(e){
@@ -51,7 +51,7 @@ function renderTBLBtn(obj, index, data) {
       FORM[2].value = obj.lastName;
       FORM[3].value = obj.houseHoldMembers;
       FORM[4].value = obj.houseSize;
-      data.splice(index, 2);
+      data.splice(index, 1);
       renderTBL(data);    
     });
     

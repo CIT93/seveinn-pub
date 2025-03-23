@@ -1,56 +1,6 @@
-// function displayMovieRates(movies) {
-//     const movieElement = document.getElementById("movies");
-//     movies.forEach(function (movie) {
-//       let recommendation;
-  
-//       if (movie.rating >= 8 && movie.watched >= 5) {
-//         recommendation = "Highly recommended!";
-//       } else if (movie.rating >= 7 || movie.watched >= 3) {
-//         recommendation = "Worth watching!";
-//       } else {
-//         recommendation = "Not recommended.";
-//       }
-  
-//       const movieEl = document.createElement("p"); // Now outside if-else
-//       movieEl.textContent = `${movie.title} had a rating of ${movie.rating}, released in ${movie.year}. Watched: ${movie.watched} times. ${recommendation}`;
-//       movieElement.appendChild(movieEl);
-//     });
-//   }
-  
-//   displayMovieRates([
-//     {
-//       title: "The Fighter",
-//       year: 2010,
-//       rating: 8,
-//       watched: 7,
-//     },
-//     {
-//       title: "American Me",
-//       year: 1992,
-//       rating: 8,
-//       watched: 5,
-//     },
-//     {
-//       title: "Phenomenon",
-//       year: 1996,
-//       rating: 6,
-//       watched: 2,
-//     },
-//     {
-//       title: "Heat",
-//       year: 1995,
-//       rating: 6,
-//       watched: 9,
-//     }
-//   ]);
-  
 import { renderTBL} from "./render.js";
 import { determineHouseHoldPts,determineHouseSizePts } from "./cfp.js";
-const FORM = document.getElementById("form");
-const OUTPUT = document.getElementById("output");
-const cfpData = [];
-let cfpObj = {}; // Global
-
+import {FORM, cfpData, TBL} from "./global.js";
 function start(houseHoldMembers, houseSize, firstName, lastName) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePts = determineHouseSizePts(houseSize);
@@ -85,37 +35,8 @@ function displayOutObj() {
     OUTPUT.appendChild(newP);
   }
 }
-// start(1, "apt");
-// start(2, "apt");
-// start(3, "apt");
-// start(4, "apt");
-// start(5, "apt");
-// start(6, "apt");
-// start(7, "apt");
-// start(1, "small");
-// start(2, "small");
-// start(3, "small");
-// start(4, "small");
-// start(5, "small");
-// start(6, "small");
-// start(7, "small");
-// start(1, "medium");
-// start(2, "medium");
-// start(3, "medium");
-// start(4, "medium");
-// start(5, "medium");
-// start(6, "medium");
-// start(7, "medium");
-// start(1, "large");
-// start(2, "large");
-// start(3, "large");
-// start(4, "large");
-// start(5, "large");
-// start(6, "large");
-// start(7, "large");
 
 displayOutObj();
-
 
 FORM.addEventListener("submit", function (e) {
   e.preventDefault(); // Stop the page from refreshing when the form is submitted
@@ -124,13 +45,8 @@ FORM.addEventListener("submit", function (e) {
   const lastName = FORM.lastName.value;
   const houseMembers = parseInt(FORM.housem.value);
   const houseSize = FORM.houses.value;
-
   start(houseMembers, houseSize, firstName, lastName); // Store data in cfpData
-
-  OUTPUT.innerHTML = ""; // Clear previous output to avoid duplication
-
   renderTBL(cfpData); // Update the table with the new user input
-
   FORM.reset(); // Clear form inputs after submission
 });
 

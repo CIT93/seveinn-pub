@@ -1,6 +1,5 @@
-const TBL = document.getElementById("tab-data");
-const FORM = document.getElementById("form");
-
+import {FORM, TBL} from "./global.js";
+import { saveLs } from "./storage.js";
 function renderTblHeading() {
   //TBL.innerHTML = "";
   const existingTable = document.querySelector("#tab-data table");
@@ -28,6 +27,14 @@ function renderTblHeading() {
   return table;
 }
 
+
+
+function onUpdate(index, data) {
+  data.splice(index, 1,);
+  saveLs(data); 
+  renderTBL(data);    
+}
+
 function renderTBLBtn(obj, index, data) {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
@@ -43,18 +50,14 @@ function renderTBLBtn(obj, index, data) {
   btnDel.addEventListener("click", function (e){
     console.log("hello from the delete button");
     console.log(e);
-    data.splice(index, 1,);
-    saveLs(data); 
-    renderTBL(data);    
+   onUpdate(index, data);  
   })
   btnEdit.addEventListener('click', function(e){
       FORM[1].value = obj.firstName;
       FORM[2].value = obj.lastName;
       FORM[3].value = obj.houseHoldMembers;
       FORM[4].value = obj.houseSize;
-      data.splice(index, 1);
-      saveLs(data); 
-      renderTBL(data);    
+      onUpdate(index, data);   
     });
     
   return td;

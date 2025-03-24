@@ -1,10 +1,11 @@
 import { renderTBL} from "./render.js";
 import { determineHouseHoldPts,determineHouseSizePts } from "./cfp.js";
 import {FORM, TBL} from "./global.js";
-import{saveLs, cfpData} from "./storage.js";
+import {saveLs, cfpData} from "./storage.js";
 
-
-
+document.addEventListener("DOMContentLoaded", function () {
+  renderTBL(cfpData); // Render saved data on page load
+});
 function start(firstName, lastName, houseHoldMembers, houseSize) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePts = determineHouseSizePts(houseSize);

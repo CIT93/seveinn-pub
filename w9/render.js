@@ -44,6 +44,7 @@ function renderTBLBtn(obj, index, data) {
     console.log("hello from the delete button");
     console.log(e);
     data.splice(index, 1,);
+    saveLs(data); 
     renderTBL(data);    
   })
   btnEdit.addEventListener('click', function(e){
@@ -52,6 +53,7 @@ function renderTBLBtn(obj, index, data) {
       FORM[3].value = obj.houseHoldMembers;
       FORM[4].value = obj.houseSize;
       data.splice(index, 1);
+      saveLs(data); 
       renderTBL(data);    
     });
     

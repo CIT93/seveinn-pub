@@ -6,70 +6,37 @@
     <title>Week 9 Pub</title>
     <script type="module" src="main.js"></script>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+<body>
     <form id="form">
-      <fieldset>
-        <legend>Input Carbon Footprint</legend>
-        <div>
-          <label>First Name</label>
-          <input type="text" name="firstName" required />
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input type="text" name="lastName" min="1" max="20" required />
-        </div>
-        <div>
-          <label>How many members in your home?</label>
-          <input type="number " name="housem" min="1" max="6" required />
-        </div>
-        <div>
-          <label>What is the size of your house?</label>
-          <!-- <input type="text" name="houses" required /> -->
-          <select name="houses" required>
-            <option value="" ----Please enter size of home---></option>
-            <option value="apt">Apartment</option>
-            <option value="large">Large</option>
-            <option value="medium">Medium</option>
-            <option value="small">Small</option>
-          </select>
-        </div>
-      </fieldset>
-      <button type="submit">submit</button>
+        <fieldset>
+            <legend>Input Carbon Footprint</legend>
+            <div>
+                <label>First Name</label>
+                <input type="text" name="firstName" />
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lastName" min="1" max="20" />
+            </div>
+            <div>
+                <label>How many members in your home?</label>
+                <input type="number" name="housem" min="1" max="6" required />
+            </div>
+            <div>
+                <label>What is the size of your house?</label>
+                <select name="houses" required>
+                    <option value="" ----Please enter size of home---></option>
+                    <option value="apt">Apartment</option>
+                    <option value="large">Large</option>
+                    <option value="medium">Medium</option>
+                    <option value="small">Small</option>
+                </select>
+            </div>
+        </fieldset>
+        <button type="submit">submit</button>
     </form>
     <div id="output"></div>
     <div id="tab-data"></div>
-    <!-- <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th># In Household</th>
-            <th>House Size</th>
-            <th>Carbon Footprint</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>Sevein</td>
-          <td>5</td>
-          <td>medium</td>
-          <td>20</td>
-          <td>
-            <button>Edit</button>
-            <button>Edit</button>
-          </td>
-          <tr>
-            <td>Sevein</td>
-            <td>5</td>
-            <td>medium</td>
-            <td>20</td>
-            <td>
-              <button>Edit</button>
-              <button>Edit</button>
-            </td>
-        </tr>
-    </tbody>
-    </table> -->
-  </body>
+</body>
 </html>

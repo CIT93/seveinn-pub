@@ -13,11 +13,13 @@
             <legend>Input Carbon Footprint</legend>
             <div>
                 <label>First Name</label>
-                <input type="text" name="firstName" />
+                <input type="text" id="firstName" name="firstName" maxlength="25"/>
+                <span id="firstNameError" class="error"></span>
             </div>
             <div>
                 <label>Last Name</label>
-                <input type="text" name="lastName" min="1" max="20" />
+                <input type="text" id="lastName" name="lastName" maxlength="25"/>
+                <span id="lastNameError" class="error"></span>
             </div>
             <div>
                 <label>How many members in your home?</label>
@@ -35,6 +37,8 @@
             </div>
         </fieldset>
         <button type="submit">submit</button>
+        <span id="submitError" class="error"></span>
+
     </form>
     <div id="output"></div>
     <div id="tab-data"></div>

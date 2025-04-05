@@ -3,7 +3,7 @@ import { determineHouseHoldPts,determineHouseSizePts } from "./cfp.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveLs, cfpData} from "./storage.js";
 
-const start = function(firstName, lastName, houseHoldMembers, houseSize) {
+const start = (firstName, lastName, houseHoldMembers, houseSize) => {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePts;
@@ -22,7 +22,7 @@ const start = function(firstName, lastName, houseHoldMembers, houseSize) {
 
 renderTBL(cfpData); // Update the table with the new user input
 
-const validatField = function(event) {
+const validatField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
@@ -40,8 +40,8 @@ LNAME.addEventListener('blur', validatField);
 
 
 
-FORM.addEventListener("submit", function (e) {
-  e.preventDefault(); // Stop the page from refreshing when the form is submitted
+FORM.addEventListener("submit", e => {
+  // e.preventDefault(); // Stop the page from refreshing when the form is submitted
   if (FNAME.value !== '' && LNAME.value !== '') {
     SUBMIT.textContent = '';
     const houseMembers = parseInt(FORM.housem.value);
@@ -55,11 +55,20 @@ FORM.addEventListener("submit", function (e) {
   
 });
 
-const add2 = function(...a) {
-  return 2 + a;
-} 
+//spread argument (mulitple things need to be passed)
+// const add2 = function(...a) {
+//   return 2 + [a];
+// } 
 
-const result = add2(1, 2, 3, 4);
+// const result = add2(1, 2, 3, 4);
+
+//arrow function
+
+const add2 = a => 2 + a;
+
+const result = add2(100, ); //if passing more than one through the function we would have to put paranthesis
+
+//IIFE 
 
 const a = 3;
 

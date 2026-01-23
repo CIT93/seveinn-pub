@@ -18,22 +18,22 @@ const handleButtonClick = function(num) {
     //totalCost = totalCost + 1;
 
     // Increase totalCost by 1 each time the button is clicked
-    totalCost += 1;
     
+    totalCost += itemPrice;
     // Template strings (literal) to easily combine our variables and text into one message
-    let message = `You have a total of ${totalCost}.`;
+    let message = `Current Total: ${totalCost}`;
 
     // This is basic decision-making in JavaScript!
     // Use a simple 'if' statement to make our page react differently based on totalCost.
-    if(totalCost >= 5) {
+    if(totalCost >= 60) {
         // console.log(`this will run`)
-        message += ' WOW, you are a super clicker!';
+        message += '(Over Budget)';
 
         // Change text color
-        totalDisplayElement.style.color = 'purple'
+        totalDisplayElement.style.color = 'red'
     } else {
         
-        totalDisplayElement.style.color = '#333';
+        totalDisplayElement.style.color = '#34ac1d';
         //console.log('if false this will run')
     }
 

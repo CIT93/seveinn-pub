@@ -60,5 +60,5 @@ document.addEventListener('DOMContentLoaded', function() {
     totalDisplayElement.textContent = `Welcome! Click the button below to start adding items`
 });
 
-
+// step2.4 already completed!
 

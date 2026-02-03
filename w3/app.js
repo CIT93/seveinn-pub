@@ -1,3 +1,4 @@
+import * as orderForm from "./order-handler.js"
 console.log('Hello from app.js! Your Javascript is connected and running!');
 // --- Part 1: Select HTML Elements ----
 

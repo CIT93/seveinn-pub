@@ -1,4 +1,5 @@
 import * as orderForm from "./order-handler.js";
+import * as priceCalculator from "./price-calculator.js";
 
 const customOrderForm = document.getElementById('order-form');
 

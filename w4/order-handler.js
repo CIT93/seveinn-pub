@@ -16,7 +16,7 @@ const getSelectedSize = function (size) {
 
 const selectShirtSize = getSelectedSize(shirtSizeInput);
 
-export const getOrderInputs = function () {
+export const getOrderInputs = function (data) {
     console.log('Get Order Inputs');
 
 getSelectedSize(selectShirtSize);
@@ -28,6 +28,6 @@ getSelectedSize(selectShirtSize);
         giftWrap: giftWrap.checked
     };
 
-
+    
 };
 

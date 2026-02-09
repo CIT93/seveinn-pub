@@ -11,9 +11,21 @@ const orderSummary = document.querySelector('order-summary');
 
 const handleFormSubmit = function(event) {
     event.preventDefault();
-    const orderFormData = orderData.cal
-    console.log(event);
+    //creates variables for my object
+    const orderData = orderForm.getOrderInputs();
+    //creates a variable for my calculations then must pass previous variable through param to use in calc
+    const calculatedPrice = priceCalculator.calculateTotal(orderData);
+    console.log(calculatedPrice);
     orderForm.getOrderInputs();
+
+    const newOrder = {
+        ...orderData,
+        ...calculatedPrice,
+        timestamp: new Date().toISOString()
+    }
+
+    customOrderFormEntries.push(newOrder);
+    console.log(customOrderFormEntries);
 };
 
 const init = function() {

@@ -16,7 +16,7 @@ const getSelectedSize = function (size) {
 
 const selectShirtSize = getSelectedSize(shirtSizeInput);
 
-export const getOrderInputs = function (orderData) {
+export const getOrderInputs = function() {
     console.log('Get Order Inputs');
 
 getSelectedSize(selectShirtSize);

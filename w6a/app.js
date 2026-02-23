@@ -1,6 +1,6 @@
 import * as orderForm from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js";
-
+import * as resultsDisplay from './results-display.js';
 
 const customOrderFormEntries = [];
 
@@ -15,7 +15,6 @@ const handleFormSubmit = function(event) {
     const orderData = orderForm.getOrderInputs();
     //creates a variable for my calculations then must pass previous variable through param to use in calc
     const calculatedPrice = priceCalculator.calculateTotal(orderData);
-    console.log(calculatedPrice);
     orderForm.getOrderInputs();
 
     const newOrder = {
@@ -25,7 +24,7 @@ const handleFormSubmit = function(event) {
     }
 
     customOrderFormEntries.push(newOrder);
-    console.log(customOrderFormEntries);
+    resultsDisplay.displayOrder(newOrder);
 };
 
 const init = function() {

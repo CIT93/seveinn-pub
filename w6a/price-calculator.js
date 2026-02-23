@@ -6,13 +6,16 @@ export const calculateTotal = function(orderData) {
     // extracts numberOfShirtts out of the orderData(param)
     const qtyOfShirts = orderData.numberOfShirts;
     const giftWrapChecked = orderData.giftWrap
+
     let totalPrice = qtyOfShirts * shirtPrice;
+
     if (giftWrapChecked) {
         totalPrice += giftWrapPrice;
-    }
-        
+    } 
         return {
-           totalPrice: totalPrice
+            totalPrice: totalPrice,
+            qtyOfShirts: qtyOfShirts,
+            giftWrapChecked: giftWrapChecked
         }
     
 };

@@ -25,6 +25,7 @@ const handleFormSubmit = function(event) {
     }
 
     customOrderFormEntries.push(newOrder);
+    orderStorage.saveOrders(customOrderFormEntries);
     resultsDisplay.displayOrder(newOrder);
 };
 

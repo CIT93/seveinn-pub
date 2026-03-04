@@ -1,7 +1,7 @@
 import * as orderForm from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js";
-import * as resultsDisplay from './results-display.js';
 import * as orderStorage from './order-storage.js';
+import * as orderList from './order-lists.js';
 
 
 const customOrderFormEntries = [];
@@ -26,18 +26,19 @@ const handleFormSubmit = function(event) {
 
     customOrderFormEntries.push(newOrder);
     orderStorage.saveOrders(customOrderFormEntries);
-    resultsDisplay.displayOrder(newOrder);
+    orderList.renderTable(customOrderFormEntries)
 };
 
+
+
 const init = function() {
-    const loadedData = orderStorage.loadOrders();
+    const loadedOrders = orderStorage.loadOrders();
     customOrderForm.addEventListener('submit', handleFormSubmit);
-    if (loadedData.length > 0) {
-        customOrderFormEntries.push(...loadedData);
-        console.log(`Entrties loaded from localStorage`)
-    } else {
-        console.log('No entries found in localStorage');
-    }
+   if (loadedOrders.length > 0) {
+    customOrderFormEntries.push(...loadedOrders);
+    orderList.renderTable(customOrderFormEntries);
+    
+}
 };
 
 

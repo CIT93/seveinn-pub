@@ -18,7 +18,8 @@ const calculateHouseholdPoints = function(householdMembers) {
 // @param {boolean} isApartment - True if dwelling is an apartment.
 // @returns {number} Points for home size.
 
-const calculateHomeSizePoints = function(calculateHomeSizePoints, isApartment){
+//Attendance Error #1
+const calculateHomeSizePoints = function(calculateHouseholdPoints, isApartment){
     if(isApartment) return 2;
     else if(homeSquareFootage > 2000) return 10;
     else if(homeSquareFootage >= 1000) return 7;

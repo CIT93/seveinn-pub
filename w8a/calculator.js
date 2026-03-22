@@ -18,8 +18,8 @@ const calculateHouseholdPoints = function(householdMembers) {
 // @param {boolean} isApartment - True if dwelling is an apartment.
 // @returns {number} Points for home size.
 
-//Attendance Error #1
-const calculateHomeSizePoints = function(calculateHouseholdPoints, isApartment){
+//Attendance Error #1 Fixed
+const calculateHomeSizePoints = function(homeSquareFootage, isApartment){
     if(isApartment) return 2;
     else if(homeSquareFootage > 2000) return 10;
     else if(homeSquareFootage >= 1000) return 7;
@@ -69,9 +69,9 @@ const calculateFoodPackagingPoints = function(foodPackaging) {
 
 
 export const calculateFootPrint = function(data) {
-    console.log('Inside calculateFootprint function in the calculator.js file')
-    const householdPoints = calculateHouseholdPoints(data.householdMembers);
-    const houseSizePoints = calculateHomeSizePoints(data.homeSquareFootage, data.isApartment);
+    console.log('Inside calculateFootprint function in the calculator.js file');
+    //Attendance Error #2
+    const houseSizePoints = calculateHomeSizPoints(data.homeSquareFootage, data.isApartment);    
     const dietTypePoints = calculateFoodDietPoints(data.dietType);
     const foodPackagingPoints = calculateFoodPackagingPoints(data.foodPackaging);
     // Sum up all category points for the total footprint

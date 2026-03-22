@@ -133,14 +133,14 @@ const formatDataForDiplay = function(timestamp) {
 // @param {boolean} isApartment - True if the dwelling is an apartment.
 // @returns {string} Formatted string (e.g., '1500 sqft' or 'Apt.').
 
+// Attendance Error #3 
 const formatHomeSizeDisplay = function(homeSquareFootage, isApartment){
-    // just the param will ask if this exists
     if(isApartment) {
-        return 'Apt.'
+        return 'Apt.';
     } else {
-        return `${homeSquareFootage.toFixed(0)} sqft`
-    };
-}
+        return `${homeSquareFootage.toFixed(2)} sqft`; 
+    }
+};
 
 
 // Creates and returns a single table row () element for a given entry.

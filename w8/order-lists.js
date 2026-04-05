@@ -1,3 +1,6 @@
+// order-list.js top of file
+let moduleCallbacks = {};
+
 const orderTableBody = document.getElementById('order-table-body');
 
 const formatRadioValue = function(value) {
@@ -48,11 +51,17 @@ tableBody.addEventListener('click', function(event) {
     // there will be no ID. So we stop the function immediately.
     if (!id) return;
 
-    // 3. Temporary Test: Log the ID to prove it works!
-    console.log("Clicked button with ID:", id); 
+    if (target.classList.contains('delete')) {
+        moduleCallbacks.onDelete(id);
+    } else if (target.classList.contains('edit')) {
+        moduleCallbacks.onEdit(id);
+    };
 });
 
-export const renderTable = function(orders) {
+export const renderTable = function(orders, callbacks) {
+     // Save the callbacks for later
+    moduleCallbacks = callbacks;
+
     orderTableBody.innerHTML = '';
 
     const sortedOrders = [...orders].sort(function(a, b) {

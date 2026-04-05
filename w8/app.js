@@ -27,9 +27,21 @@ const handleFormSubmit = function(event) {
 
     customOrderFormEntries.push(newOrder);
     orderStorage.saveOrders(customOrderFormEntries);
-    orderList.renderTable(customOrderFormEntries)
+     orderList.renderTable(customOrderFormEntries, {
+    onDelete: handleDelete,
+    onEdit: handleEdit
+});
 };
 
+
+
+const handleDelete = function(id) {
+    console.log("App.js: Requesting delete for order", id);
+};
+
+const handleEdit = function(id) {
+    console.log("App.js: Requesting edit for order", id);
+};
 
 
 const init = function() {
@@ -37,8 +49,10 @@ const init = function() {
     customOrderForm.addEventListener('submit', handleFormSubmit);
    if (loadedOrders.length > 0) {
     customOrderFormEntries.push(...loadedOrders);
-    orderList.renderTable(customOrderFormEntries);
-    
+    orderList.renderTable(customOrderFormEntries, {
+    onDelete: handleDelete,
+    onEdit: handleEdit
+});
 }
 };
 

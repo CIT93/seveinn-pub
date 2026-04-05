@@ -21,7 +21,7 @@ const formatDataForDiplay = function(timestamp) {
 const createTableRow = function(entry){
     const row = document.createElement('tr');
     row.dataset.id = entry.id;
-
+    // already inserted buttons
     row.innerHTML = `
         <td>${formatDataForDiplay(entry.timestamp)}</td>
         <td>${entry.numberOfShirts}</td>

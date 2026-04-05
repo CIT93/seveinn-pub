@@ -19,9 +19,9 @@ const handleFormSubmit = function(event) {
     const calculatedPrice = priceCalculator.calculateTotal(orderData);
 
     const newOrder = {
+        id: Date.now().toString(), // <--- ADD THIS LINE (Unique ID based on time)
         ...orderData,
         ...calculatedPrice,
-        timestamp: new Date().toISOString()
     }
 
     customOrderFormEntries.push(newOrder);

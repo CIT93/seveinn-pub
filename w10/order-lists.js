@@ -1,0 +1,75 @@
+// order-list.js top of file
+let moduleCallbacks = {};
+
+const orderTableBody = document.getElementById('order-table-body');
+
+const formatRadioValue = function(value) {
+    switch(value) {
+        case 'Small': return 'Small';
+        case 'Medium': return 'Medium';
+        case 'Large': return 'Large';
+        default: return value;
+    }
+};
+
+const formatDataForDiplay = function(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+};
+
+const createTableRow = function(entry){
+    const row = document.createElement('tr');
+    row.dataset.id = entry.id;
+    // already inserted buttons
+    row.innerHTML = `
+        <td>${formatDataForDiplay(entry.timestamp)}</td>
+        <td>${entry.numberOfShirts}</td>
+        <td>${formatRadioValue(entry.shirtSize)}</td>
+        <td>$${entry.totalPrice.toFixed(2)}</td>
+        <td class="action-cell">
+            <button class="action-button edit" data-id="${entry.id}">Edit</button>
+            <button class="action-button delete" data-id="${entry.id}">Delete</button>
+        </td>
+    `;
+
+    return row;
+};
+
+const tableBody = document.getElementById('order-table-body');
+
+tableBody.addEventListener('click', function(event) {
+    const target = event.target;
+    
+    // 1. Get the ID from the button that was clicked
+    const id = target.dataset.id;
+
+    // 2. Guard Clause: If they clicked a row (white space) but NOT a button, 
+    // there will be no ID. So we stop the function immediately.
+    if (!id) return;
+
+    if (target.classList.contains('delete')) {
+        moduleCallbacks.onDelete(id);
+    } else if (target.classList.contains('edit')) {
+        moduleCallbacks.onEdit(id);
+    };
+});
+
+export const renderTable = function(orders, callbacks) {
+     // Save the callbacks for later
+    moduleCallbacks = callbacks;
+
+    orderTableBody.innerHTML = '';
+
+    const sortedOrders = [...orders].sort(function(a, b) {
+        return new Date(b.timestamp) - new Date(a.timestamp);
+    });
+
+    for (const order of sortedOrders) {
+        const row = createTableRow(order);
+        orderTableBody.appendChild(row);
+    }
+};

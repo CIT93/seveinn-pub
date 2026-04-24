@@ -3,7 +3,6 @@
  export const saveOrders = function(orders){
     try {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(orders));
-        console.log('Data saved to localStorage!')
     } catch (error) {
         console.log(`Error saving data to localStorage: ${error}`);
     }

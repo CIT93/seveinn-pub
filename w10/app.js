@@ -27,7 +27,7 @@ const handleFormSubmit = function(event) {
 
     customOrderFormEntries.push(newOrder);
     orderStorage.saveOrders(customOrderFormEntries);
-     orderList.renderTable(customOrderFormEntries, {
+    orderList.renderTable(customOrderFormEntries, {
     onDelete: handleDelete,
     onEdit: handleEdit
 });
@@ -48,14 +48,19 @@ const handleDelete = function(id) {
             onDelete: handleDelete,
             onEdit: handleEdit
         });
-    if (customOrderFormEntries.length === 0) {
-        orderStorage.clearOrders();
+        console.log(`Deleted entry id: ${id}`);
     }
-}
 };
 
 const handleEdit = function(id) {
     console.log("App.js: Requesting edit for order", id);
+    const entryToEdit = customOrderFormEntries.find(function(entry){
+        return entry.id === id;
+    })
+     if(entryToEdit) {
+            orderForm.populateFormEdit(entryToEdit);
+            console.log(`Editing entry id is ${id} form populated`);
+        }
 };
 
 

@@ -37,6 +37,21 @@ const handleFormSubmit = function(event) {
 
 const handleDelete = function(id) {
     console.log("App.js: Requesting delete for order", id);
+    const indexToDelete = customOrderFormEntries.findIndex(function(entry) {
+        return entry.id === id;
+    });
+
+    if (indexToDelete !== -1) {
+        customOrderFormEntries.splice(indexToDelete, 1);
+        orderStorage.saveOrders(customOrderFormEntries);
+        orderList.renderTable(customOrderFormEntries, {
+            onDelete: handleDelete,
+            onEdit: handleEdit
+        });
+    if (customOrderFormEntries.length === 0) {
+        orderStorage.clearOrders();
+    }
+}
 };
 
 const handleEdit = function(id) {

@@ -13,24 +13,47 @@ const orderSummary = document.querySelector('order-summary');
 
 const handleFormSubmit = function(event) {
     event.preventDefault();
-    //creates variables for my object
+
     const orderData = orderForm.getOrderInputs();
-    //creates a variable for my calculations then must pass previous variable through param to use in calc
     const calculatedPrice = priceCalculator.calculateTotal(orderData);
 
-    const newOrder = {
-        id: Date.now().toString(),
-        ...orderData,
-        ...calculatedPrice,
-        timestamp: new Date().toISOString()
+    const hiddenOrderId = document.getElementById('order-id').value;
+
+    if (hiddenOrderId) {
+        const indexToUpdate = customOrderFormEntries.findIndex(function(entry) {
+            return entry.id === hiddenOrderId;
+        });
+
+        if (indexToUpdate !== -1) {
+            customOrderFormEntries[indexToUpdate] = {
+                ...customOrderFormEntries[indexToUpdate],
+                ...orderData,
+                ...calculatedPrice
+            };
+
+            console.log(`Updated entry id: ${hiddenOrderId}`);
+        }
+    } else {
+        const newOrder = {
+            id: Date.now().toString(),
+            ...orderData,
+            ...calculatedPrice,
+            timestamp: new Date().toISOString()
+        };
+
+        customOrderFormEntries.push(newOrder);
+        console.log(`Added new entry id: ${newOrder.id}`);
     }
 
-    customOrderFormEntries.push(newOrder);
     orderStorage.saveOrders(customOrderFormEntries);
+
     orderList.renderTable(customOrderFormEntries, {
-    onDelete: handleDelete,
-    onEdit: handleEdit
-});
+        onDelete: handleDelete,
+        onEdit: handleEdit
+    });
+
+    document.getElementById('order-id').value = '';
+    customOrderForm.reset();
 };
 
 
